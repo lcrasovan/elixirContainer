@@ -18,7 +18,7 @@ defmodule ApplicationTwo.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [applications: [:logger, :httpoison, :tirexs]]
   end
 
   # Dependencies can be Hex packages:
@@ -35,6 +35,6 @@ defmodule ApplicationTwo.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:httpoison, "~> 0.4"}, {:tirexs, "~> 0.8"}]
   end
 end
