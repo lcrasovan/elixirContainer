@@ -1,7 +1,9 @@
 # This container is a collection of examples for easy, baby-step elixir learning
 
 For the moment there are two apps under the same Elixir "umbrella"
+
 An umbrella allows us to have several apps in the same github project
+
 Each App can be launched by itself
 
 Preliminary steps:
@@ -16,8 +18,10 @@ Preliminary steps:
 
 4. Launch an app:
 
-´´´
+
 > cd apps/application_two
+
 > iex -S mix
+
 > ApplicationTwo.getTitles
-´´´
+
