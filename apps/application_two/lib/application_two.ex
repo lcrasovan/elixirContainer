@@ -18,7 +18,7 @@ defmodule ApplicationTwo do
 
       playsInfo = aggregations[:aggregations][:play_names][:buckets]
 
-      Enum.each playsInfo, fn(playInfo) -> IO.puts(playInfo[:key]) end
+      Enum.each playsInfo, fn(playInfo) -> IO.puts "#{playInfo[:key]}: #{playInfo[:doc_count]} lines"  end
 
   end
 
