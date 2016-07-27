@@ -10,16 +10,19 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :application_two, key: :value
+#     config :shakespeareBrowser, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:application_two, :key)
+#     Application.get_env(:shakespeareBrowser, :key)
 #
 # Or configure a 3rd-party app:
 #
 #     config :logger, level: :info
 #
+
+# TIREXS CONFIG
+config :tirexs, :uri, "http://127.0.0.1:9200"
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

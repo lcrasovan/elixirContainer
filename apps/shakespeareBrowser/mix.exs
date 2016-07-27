@@ -1,8 +1,8 @@
-defmodule ApplicationTwo.Mixfile do
+defmodule ShakespeareBrowser.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :application_two,
+    [app: :shakespeareBrowser,
      version: "0.0.1",
      build_path: "../../_build",
      config_path: "../../config/config.exs",
@@ -18,7 +18,7 @@ defmodule ApplicationTwo.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger, :httpoison]]
+    [applications: [:logger, :tirexs]]
   end
 
   # Dependencies can be Hex packages:
@@ -35,6 +35,6 @@ defmodule ApplicationTwo.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:httpoison, "~> 0.4"}]
+    [{:tirexs, "~> 0.8"}]
   end
 end
