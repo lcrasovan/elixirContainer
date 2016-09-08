@@ -1,4 +1,4 @@
-# This container is a collection of examples for easy, baby-step elixir learning
+# This container is a collection of examples for easy, baby-step elixir learning and to experiment with elixir
 
 For the moment there are two apps under the same Elixir "umbrella"
 
