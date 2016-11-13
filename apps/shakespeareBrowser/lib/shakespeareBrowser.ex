@@ -1,7 +1,7 @@
 defmodule ShakespeareBrowser do
   import Tirexs.Search
 
-  def getAllPieces do
+  def getAllTitles do
 
       query = search [index: "shakespeare"] do
         size 0
