@@ -23,5 +23,6 @@ Preliminary steps:
 
 > iex -S mix
 
-> ShakespeareBrowser.getTitles
+> ShakespeareBrowser.getAllTitles
+> ShakespeareBrowser.getAllRolesInPiece
 
