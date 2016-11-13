@@ -19,10 +19,12 @@ Preliminary steps:
 4. Launch an app:
 
 
-> cd apps/shakespeareBrowser
+```language=shell
+cd apps/shakespeareBrowser
 
-> iex -S mix
+iex -S mix
 
-> ShakespeareBrowser.getAllTitles
-> ShakespeareBrowser.getAllRolesInPiece
+ShakespeareBrowser.getAllTitles
 
+ShakespeareBrowser.getAllRolesInPiece
+```
