@@ -26,5 +26,11 @@ iex -S mix
 
 ShakespeareBrowser.getAllTitles
 
-ShakespeareBrowser.getAllRolesInPiece
+ShakespeareBrowser.getAllRolesInPiece('Hamlet')
+
+ShakespeareBrowser.getMainRoles
 ```
+
+We get something like this: 
+ 
+![getMainRoles result](apps/shakespeareBrowser/images/mainRoles.png?raw=true "Main Roles in Shakespeare plays") 
