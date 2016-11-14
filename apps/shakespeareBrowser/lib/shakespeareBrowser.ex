@@ -22,14 +22,16 @@ defmodule ShakespeareBrowser do
 
   end
 
-  def getAllRolesInPiece do
+  def getAllRolesInPiece(piece) do
+
+    IO.puts "#{piece} \n"
 
     queryRoles = search [index: "shakespeare"] do
       size 0
       query do
         bool do
           must do
-            match "play_name", "Hamlet"
+            match "play_name", "#{piece}"
           end
         end
       end
@@ -42,7 +44,7 @@ defmodule ShakespeareBrowser do
 
     {:ok, code, aggregations} = Tirexs.Query.create_resource(queryRoles)
 
-    IO.puts "Speakers in Hamlet:\n"
+    IO.puts "Speakers in #{piece} :\n"
 
     speakers = aggregations[:aggregations][:speakers][:buckets]
 
@@ -50,6 +52,36 @@ defmodule ShakespeareBrowser do
 
   end
 
+
+  def getMainRoles do
+
+    queryRoles = search [index: "shakespeare"] do
+      size 0
+      aggs do
+        plays do
+          terms field: "play_name", size: 10
+          aggs do
+            speakers do
+              terms field: "speaker", size: 5
+            end
+          end
+        end
+      end
+    end
+
+    {:ok, code, aggregations} = Tirexs.Query.create_resource(queryRoles)
+
+    plays = aggregations[:aggregations][:plays][:buckets]
+
+    for play <- plays do
+      IO.puts "Most important roles in #{play[:key]} (#{play[:doc_count]} lines) are:"
+      speakers = play[:speakers][:buckets]
+      for speaker <- speakers do
+        IO.puts "#{speaker[:key]} - apearing #{speaker[:doc_count]} times"
+      end
+    end
+
+  end
 
 
 end
