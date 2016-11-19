@@ -41,3 +41,10 @@ We get something like this:
    https://github.com/cas27/exword_count
 
    I have extended it slightly here to work for array of sentences
+   
+6. Testing added. To run unit test simply execute in the root of the project:
+   
+```language=shell
+mix test
+```   
+   
