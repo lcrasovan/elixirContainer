@@ -34,3 +34,10 @@ ShakespeareBrowser.getMainRoles
 We get something like this: 
  
 ![getMainRoles result](apps/shakespeareBrowser/images/mainRoles.png?raw=true "Main Roles in Shakespeare plays") 
+
+5. It's time to go deeper into text/word counting analysis. 
+   First I would like to aknowledge the counting example from :
+
+   https://github.com/cas27/exword_count
+
+   I have extended it slightly here to work for array of sentences
