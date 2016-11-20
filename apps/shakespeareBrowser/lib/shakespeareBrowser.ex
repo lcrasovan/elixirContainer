@@ -83,5 +83,29 @@ defmodule ShakespeareBrowser do
 
   end
 
+  def getPieceText(piece) do
+
+    queryLines = search [index: "shakespeare"] do
+      size 100
+      query do
+        bool do
+          must do
+            match "play_name", "#{piece}"
+          end
+        end
+      end
+      sort do
+        [
+          [line_id: "asc"]
+        ]
+      end
+    end
+
+    {:ok, code, lines} = Tirexs.Query.create_resource(queryLines)
+
+    linesInfo = lines[:hits][:hits]
+    Enum.each linesInfo, fn(lineInfo) -> IO.puts "#{lineInfo[:_source][:text_entry]}"  end
+
+  end
 
 end
