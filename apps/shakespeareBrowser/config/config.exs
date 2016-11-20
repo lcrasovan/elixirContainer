@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :shakespeareBrowser, key: :value
+config :shakespeareBrowser, minLetters: 5
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:shakespeareBrowser, :key)
+#     Application.get_env(:shakespeareBrowser, :minLetters)
 #
 # Or configure a 3rd-party app:
 #

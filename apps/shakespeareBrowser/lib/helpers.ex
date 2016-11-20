@@ -1,4 +1,5 @@
 defmodule WordCount do
+
   def count(words) when is_list(words) do
     Enum.reduce(words, %{}, &update_count/2)
   end
@@ -14,7 +15,12 @@ defmodule WordCount do
   end
 
   def update_count(word, acc) do
-    Map.update acc, String.to_atom(String.downcase(word)), 1, &(&1 + 1)
+    minLetters = Application.get_env(:shakespeareBrowser, :minLetters)
+    if String.length(String.downcase(word)) > minLetters do
+      Map.update acc, String.to_atom(String.downcase(word)), 1, &(&1 + 1)
+    else
+      acc
+    end
   end
 
   def process_line(line) do
