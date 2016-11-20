@@ -7,4 +7,11 @@ defmodule StatisticsStudio do
     Enum.sort listStat, &(elem(&1, 1) >= elem(&2,1))
   end
 
+  def getShakespearePieceWordByRoleStats(piece, role) do
+    text = ShakespeareBrowser.getPieceText(piece, role)
+    stat = WordCount.text_count(text)
+    listStat = Map.to_list(stat)
+    Enum.sort listStat, &(elem(&1, 1) >= elem(&2,1))
+  end
+
 end
