@@ -111,4 +111,33 @@ defmodule ShakespeareBrowser do
 
   end
 
+    def getPieceTextByRole(piece, role) do
+
+      queryLines = search [index: "shakespeare"] do
+        size 400
+        query do
+          bool do
+            must do
+              match "play_name", "#{piece}"
+              match "speaker", "#{role}"
+            end
+          end
+        end
+        sort do
+          [
+            [line_id: "asc"]
+          ]
+        end
+      end
+
+      {:ok, code, lines} = Tirexs.Query.create_resource(queryLines)
+
+      linesInfo = lines[:hits][:hits]
+      text = []
+      for lineInfo <- linesInfo do
+        text = text ++ WordCount.process_line(lineInfo[:_source][:text_entry])
+      end
+
+    end
+
 end
