@@ -1,4 +1,4 @@
-defmodule ShakespeareElasticBrowser do
+defmodule ShakespeareBrowser do
   import Tirexs.Search
 
   def getAllTitles do
@@ -86,7 +86,7 @@ defmodule ShakespeareElasticBrowser do
   def getPieceText(piece) do
 
     queryLines = search [index: "shakespeare"] do
-      size 100
+      size 4000
       query do
         bool do
           must do
