@@ -15,12 +15,19 @@ defmodule WordCount do
   end
 
   def update_count(word, acc) do
-    minLetters = Application.get_env(:shakespeareBrowser, :minLetters)
-    if String.length(String.downcase(word)) > minLetters do
+
+    fixedLength = Application.get_env(:shakespeareBrowser, :fixedLength)
+    minLength = Application.get_env(:shakespeareBrowser, :minLength)
+    wordLength = Application.get_env(:shakespeareBrowser, :length)
+    isMinLength = minLength and (String.length(String.downcase(word)) >= wordLength)
+    isFixedLength = fixedLength and (String.length(String.downcase(word)) == wordLength)
+
+    if (isMinLength or isFixedLength) do
       Map.update acc, String.to_atom(String.downcase(word)), 1, &(&1 + 1)
     else
       acc
     end
+
   end
 
   def process_line(line) do
