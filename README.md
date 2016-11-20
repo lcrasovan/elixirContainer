@@ -47,4 +47,11 @@ We get something like this:
 ```language=shell
 mix test
 ```   
+
+7. The statistic studio module is providing us the statistic info we might want to have about one text.
+For example, to get the most used words in Hamlet piece one issues this:
+
+```language=shell
+StatisticsStudio.getShakespearePieceWordStats('Hamlet')
+```
    
