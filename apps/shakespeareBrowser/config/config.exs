@@ -10,7 +10,7 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-config :shakespeareBrowser, minLetters: 5
+config :shakespeareBrowser, minLength: true, fixedLength: false, length: 5
 #
 # And access this configuration in your application as:
 #
