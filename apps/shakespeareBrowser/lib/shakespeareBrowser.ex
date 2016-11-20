@@ -1,4 +1,4 @@
-defmodule ShakespeareBrowser do
+defmodule ShakespeareElasticBrowser do
   import Tirexs.Search
 
   def getAllTitles do
@@ -104,7 +104,10 @@ defmodule ShakespeareBrowser do
     {:ok, code, lines} = Tirexs.Query.create_resource(queryLines)
 
     linesInfo = lines[:hits][:hits]
-    Enum.each linesInfo, fn(lineInfo) -> IO.puts "#{lineInfo[:_source][:text_entry]}"  end
+    text = []
+    for lineInfo <- linesInfo do
+      text = text ++ WordCount.process_line(lineInfo[:_source][:text_entry])
+    end
 
   end
 

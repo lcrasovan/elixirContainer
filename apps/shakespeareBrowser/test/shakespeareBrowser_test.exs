@@ -19,20 +19,10 @@ defmodule ShakespeareBrowserTest do
     if File.exists?(filename) do
       stream = File.stream!(filename, [:read, :utf8])
       text = Enum.reduce stream, text, fn(line, listing) ->
-               [process_line(line)] ++ [listing]
+               [WordCount.process_line(line)] ++ [listing]
              end
       end
     assert WordCount.text_count(text) == %{FRANCISCO: 1, BERNARDO: 1, Enter: 1, Nay: 1, "Who's": 1, and: 1, answer: 1, at: 1, him: 1, his: 1, me: 1, post: 1, stand: 1, there: 1, to: 1, unfold: 1, yourself: 1}
-  end
-
-  def process_line(line) do
-    line
-      |> String.strip
-      |> String.replace(".", " ")
-      |> String.replace(",", " ")
-      |> String.replace(":", " ")
-      |> String.replace(";", " ")
-      |> String.replace("?", " ")
   end
 
 end

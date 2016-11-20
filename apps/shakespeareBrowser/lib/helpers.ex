@@ -14,6 +14,19 @@ defmodule WordCount do
   end
 
   def update_count(word, acc) do
-    Map.update acc, String.to_atom(word), 1, &(&1 + 1)
+    Map.update acc, String.to_atom(String.downcase(word)), 1, &(&1 + 1)
   end
+
+  def process_line(line) do
+    line
+      |> String.strip
+      |> String.replace(".", " ")
+      |> String.replace(",", " ")
+      |> String.replace(":", " ")
+      |> String.replace(";", " ")
+      |> String.replace("?", " ")
+      |> String.replace("!", " ")
+      |> String.replace("-", " ")
+  end
+
 end
