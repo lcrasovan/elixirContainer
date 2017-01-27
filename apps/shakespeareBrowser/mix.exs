@@ -35,6 +35,9 @@ defmodule ShakespeareBrowser.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:tirexs, "~> 0.8"}]
+    [
+    {:tirexs, "~> 0.8"},
+    {:poison, "~> 3.0"}
+    ]
   end
 end
