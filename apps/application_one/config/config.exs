@@ -22,7 +22,8 @@ use Mix.Config
 #
 
 config :application_one,
-    message_one: "This is a shared message!"
+    message_one: "This is a shared message!",
+    message_two: "This is the second message, not shown in dev environment!"
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
