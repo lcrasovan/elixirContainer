@@ -36,8 +36,6 @@ defmodule ApplicationOne.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
       [
-        {:pop3mail, "~> 0.1.7"},
-        {:erlpop, github: "trifork/erlpop"}
       ]
   end
 end

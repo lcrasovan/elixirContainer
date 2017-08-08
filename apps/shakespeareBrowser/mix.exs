@@ -37,7 +37,14 @@ defmodule ShakespeareBrowser.Mixfile do
   defp deps do
     [
     {:tirexs, "~> 0.8"},
-    {:poison, "~> 3.0"}
+    {:poison, "~> 3.0"},
+    {:credo, "~> 0.8", only: [:dev, :test], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      test: ["credo", "test --cover"], # to be able to test partially i.e.: `mix test test/inventory_scenario_test.exs:90`
     ]
   end
 end
